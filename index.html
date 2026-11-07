@@ -31,7 +31,7 @@ a { color: var(--sky); text-underline-offset: 3px; }
 a:hover { color: var(--bone); }
 a:focus-visible { outline: 2px solid var(--brass); outline-offset: 3px; }
 .wrap { width: 100%; max-width: 1080px; margin: 0 auto; padding: 0 max(16px, 4vw); }
-section { padding: clamp(56px, 9vw, 96px) 0; border-top: 1px solid var(--rule); }
+section { padding: clamp(56px, 9vw, 96px) 0; border-top: 1px solid var(--rule); scroll-margin-top: 44px; }
 .label {
   margin: 0 0 10px; color: var(--brass);
   font: 700 0.78rem/1.4 var(--mono); letter-spacing: 0.14em; text-transform: uppercase;
@@ -144,6 +144,16 @@ footer p { margin: 0; max-width: 42rem; }
 @media (max-width: 520px) {
   .album { grid-template-columns: 76px 1fr; gap: 12px; }
   .cover { width: 76px; height: 76px; font-size: 0.78rem; }
+}
+@media (max-width: 680px) {
+  table, tbody, tr, td, caption { display: block; }
+  table { min-width: 0; }
+  thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  tr { padding: 14px 0; border-bottom: 1px solid var(--rule); }
+  td { padding: 2px 0; border: 0; }
+  td:nth-child(2) { font-size: 1.08rem; }
+  td:nth-child(3)::before { content: "Broke: "; color: var(--brass); }
+  td:nth-child(4)::before { content: "Crowd: "; color: var(--brass); }
 }
 @media (prefers-reduced-motion: no-preference) {
   .scope path { stroke-dasharray: 12 6; animation: drift 7s linear infinite; }
